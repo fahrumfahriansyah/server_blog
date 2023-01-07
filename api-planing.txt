@@ -1,0 +1,75 @@
+[route.api]/[version]/[grouping]/{endpoint}
+
+sample:
+mern_stack.com/v1/auth
+
+standar status response 
+
+200 - OK                    ---> call api success
+201 - created               ---> post success
+400 - bad request           ---> error on client side (bisa input yang salah dll)
+401 - unauthorized          ---> user not authorized to the request
+403 - forbidden             ---> user not allowed to access
+404 - not found             ---> request endpoint not found
+500 - internal server error ---> error on server side
+502 0 bad gateway           ---> invalid response from author request
+
+GROUP:Authentication
+
+[1] register
+[route.api]/[version]/auth/register
+
+req:
+{
+    "name":"fsasadasdasdas",
+    "email":"asd@gmail.com",
+    "password":"asdasds"
+}
+res:
+{
+    "message":"register success"
+    "data":{
+        "id":"1"
+         "name":"fsasadasdasdas",
+         "email":"asd@gmail.com",
+         "password":"asdasds"
+    }
+}
+--err-res:
+201 --> post success
+
+400 --> input yang anda masukan tidak valid
+
+[2] login
+[route.api]/[version]/auth/login
+
+GROUP:BLOG
+
+[1] -->create BLOG
+
+req:
+{
+    "title":"title blog",
+    "image":"image_blog",
+    "body":"lorem ipsumasdsadasdsasa"
+}
+res:
+{
+    "post_id":1,
+    "title":"Title_Blog",
+    "image":"image_blog",
+    "body":"lorem ipsumasdsadasdsasa",
+    "created_at":"12/06/2020"
+"author":{
+    "uid":1,
+    "name" :"Testing"
+}
+}
+--err-res:
+200 --> blog post success dibuat
+400 --> input yang anda masukan tidak valid
+
+
+[2] -->get BLOG
+[3] -->update BLOG
+[4] -->delete BLOG
